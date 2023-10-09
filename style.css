@@ -1,0 +1,193 @@
+* {
+  /* todos os elementos não terao margem e padding do navegador*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*a medida do tmanho da caixa, para que medida venha da borda*/
+}
+:root {
+  /*raiz *modo padrão*/
+  --text-color: white; /*definindo um nome para a variavel, para que todo meu conteúdo, em todo o lugar da minha página, tudo que usar essa váriavel 'text-color' vai usar branco */
+  --bg-url: url(./assets/bg-mobile.jpg); /*criando uma variavel para url do background*/
+  
+   --stroke-color: 1px solid rgba(255, 255, 255, 0.5);
+   --surface-color:rgba(255, 255, 255, 0.05);    /*hover, cor quando passa mouse*/
+   --surface-color-hover:  rgba(255, 255, 255, 0.02)
+   --highlight-color:  rgba(255, 255, 255, 0.2);
+   --switch-bg-url: url(./assets/moon-stars.svg); /*variavel criada para a imagem no botao*/
+  
+}
+.light {
+  /*modo light, estilos:*/
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: 1px solid rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);  /*hover, cor quando passa mouse*/
+   --switch-bg-url: url(./assets/sun.svg);/*variavel criada para a imagem no botao*/
+}
+body {
+  /* 
+  background-image: url(./assets/bg-mobile.jpg); /*onde está a imagem*/
+  /*
+  background-repeat: no-repeat; /*não repetir a imagem*/
+  /*
+  background-position: top center; /*colocar no centro, no topo do eixo Y, e no eixo x centralizado ao centro*/
+  /* 
+  background-size: cover; /*cobrir todo o espaço visivel
+  a opção 'contain' vai colocar dentro do body, porém o body precisa ter os tamanhos de largura e altura*/
+
+  /*abaixo opção de agrupar todas essas informaçoes em uma unica propriedade (atalho ou shorthend)
+  background: color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover; /*chamando a classe da url no root*/
+}
+body * {
+  /* '*' é o seletor universal, ele vai aplicar para todos os elementos dentro do body*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*variavel que criei para setar branco*/
+}
+/*seletor de id*/
+#container {
+  width: 360px;
+  margin: 56px auto 0px; /*cima , automatico nas laterais, em baixo zero*/
+  padding: 0 24px;
+
+  /*alinhar a caixa ao meio*/
+  /*margin-right: auto;
+  margin-left: auto;*/
+  margin: auto;
+
+  /*regras de display
+  alguns elementos tem por padrão o display block e outros inline
+  o display block, dá toda largura possivel de tela, forçando o elemento de cima, ficar em cima
+  o display inline fica em linha
+  img é um elemento inline, este elemento não dá para aplicar margin auto. Para aplicar magin auto, precisa transformar o elemento em block.
+  */
+
+
+  /*Profile*/
+}
+#profile {
+  /*pai */
+  text-align: center; /*configurado para que ele e os filhos sejam centralizado */
+  line-height: 24px; /*altura da linha*/
+  padding: 24px;
+}
+#profile img {
+  /*filho /
+
+/*display:block*/
+  width: 112px;
+}
+#profile p {
+  font-weight: 500; /*tamanho negrito*/
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+/*Switch*/
+#switch{
+  position: relative; /* relativizar a posição absolute*/
+  width: 64px;
+
+  margin: 4px auto;
+ 
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+background: white  var(--switch-bg-url) no-repeat center; /*para nao repetir a imagem e centralizar*/
+border: 0;
+border-radius: 50%; /*50% para ficar a borda arredondada*/
+
+/*estrategia para posições absolutas*/
+position: absolute; /*quando a posição é absoluta, ele faz uma sobreposição de camadas. Neste caso ele vai ser relativo ao elemento switch */
+left: 0;
+z-index: 1 ; /*qual andar ele está (camada)*/
+transform: translateY(-50%); /*movimentar o elmento pra cima ou pra baixo. -50% o elemento irá passar 50% da caixinha*/
+top: 50%; /*todo elemento vai se posicionar 50% do topo*/
+}
+
+.light #switch button{
+  right: 0;
+  left: initial; /*volta para sua maneira inicial*/
+}
+#switch span{ /*por padrão o display do span é inline (linha)*/
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*links*/
+ul {
+  list-style: none; /*tirar os spontinhos da lista*/
+
+  /*o display tipo flex ajusta os elementos de forma flexivel*/
+  display: flex;
+  flex-direction: column; /*o flex direction ordena em colunas*/
+  gap: 16px; /*o gap coloca um espaço entre os elementos em cada linha*/
+
+  /*24 superior e inferior e 0 laterias*/
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center; /*alinhar o elemento no meio da caixa*/
+  justify-content: center; /*alinha o texto*/
+  padding: 16px 24px;
+
+  /*RGBA de 0 até 55 - sendo 0 a cor mais escura, (sendo preto absoluto) e 255 o mais forte daquela cor
+  Então red, green e blue e a quarta propriedade é a transparencia
+  Quando as 3 estão '255' entao se torna um branco*/
+  background: var(--surface-color); /*cor do background da variavel surface color*/
+  border: var(--stroke-color);/*cor da borda da variavel surface color*/
+  border-radius: 8px; /*arrendondamento de borda*/
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none; /*sem sublinhado*/
+  /*fonte acima de é bold */
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+/*pseudo-selector; Nele é aplicado as coisas quando passado o mouse em cima*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color); /*variavel que criei para setar branco*/
+}
+
+/*Social links*/
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+/*quando colocar o mouse em cima oq vai acontecer com os itens do social*/
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
