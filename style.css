@@ -2,29 +2,38 @@
   /* todos os elementos não terao margem e padding do navegador*/
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /*a medida do tmanho da caixa, para que medida venha da borda*/
+  box-sizing: border-box;
+  /*a medida do tmanho da caixa, para que medida venha da borda*/
 }
+
 :root {
   /*raiz *modo padrão*/
-  --text-color: white; /*definindo um nome para a variavel, para que todo meu conteúdo, em todo o lugar da minha página, tudo que usar essa váriavel 'text-color' vai usar branco */
-  --bg-url: url(./assets/bg-mobile.jpg); /*criando uma variavel para url do background*/
-  
-   --stroke-color: 1px solid rgba(255, 255, 255, 0.5);
-   --surface-color:rgba(255, 255, 255, 0.05);    /*hover, cor quando passa mouse*/
-   --surface-color-hover:  rgba(255, 255, 255, 0.02)
-   --highlight-color:  rgba(255, 255, 255, 0.2);
-   --switch-bg-url: url(./assets/moon-stars.svg); /*variavel criada para a imagem no botao*/
-  
+  --text-color: white;
+  /*definindo um nome para a variavel, para que todo meu conteúdo, em todo o lugar da minha página, tudo que usar essa váriavel 'text-color' vai usar branco */
+  --bg-url: url(./assets/bg-mobile.jpg);
+  /*criando uma variavel para url do background*/
+
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  /*hover, cor quando passa mouse*/
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  /*variavel criada para a imagem no botao*/
 }
+
 .light {
   /*modo light, estilos:*/
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
-  --stroke-color: 1px solid rgba(0, 0, 0, 0.5);
+  --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);  /*hover, cor quando passa mouse*/
-   --switch-bg-url: url(./assets/sun.svg);/*variavel criada para a imagem no botao*/
+  --surface-color-hover: rgba(0, 0, 0, 0.02); /*hover, cor quando passa mouse*/
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+  /*variavel criada para a imagem no botao*/
 }
+
 body {
   /* 
   background-image: url(./assets/bg-mobile.jpg); /*onde está a imagem*/
@@ -38,19 +47,25 @@ body {
 
   /*abaixo opção de agrupar todas essas informaçoes em uma unica propriedade (atalho ou shorthend)
   background: color image repeat position/size */
-  background: var(--bg-url) no-repeat top center/cover; /*chamando a classe da url no root*/
-  height: : 100vh;/*a 'vh' é altura da viewport, ou seja a altura total disponivel*/
+  background: var(--bg-url) no-repeat top center/cover;
+  /*chamando a classe da url no root*/
+  height: 100vh;
+  /*a 'vh' é altura da viewport, ou seja a altura total disponivel*/
 }
+
 body * {
   /* '*' é o seletor universal, ele vai aplicar para todos os elementos dentro do body*/
   font-family: "Inter", sans-serif;
-  color: var(--text-color); /*variavel que criei para setar branco*/
+  color: var(--text-color);
+  /*variavel que criei para setar branco*/
 }
+
 /*seletor de id*/
 #container {
   width: 100%;
   max-width: 588px;
-  margin: 56px auto 0px; /*cima , automatico nas laterais, em baixo zero*/
+  margin: 56px auto 0px;
+  /*cima , automatico nas laterais, em baixo zero*/
   padding: 0 24px;
 
   /*alinhar a caixa ao meio*/
@@ -65,61 +80,80 @@ body * {
   img é um elemento inline, este elemento não dá para aplicar margin auto. Para aplicar magin auto, precisa transformar o elemento em block.
   */
 
-
   /*Profile*/
 }
+
 #profile {
   /*pai */
-  text-align: center; /*configurado para que ele e os filhos sejam centralizado */
-  line-height: 24px; /*altura da linha*/
+  text-align: center;
+  /*configurado para que ele e os filhos sejam centralizado */
+  line-height: 24px;
+  /*altura da linha*/
   padding: 24px;
 }
+
 #profile img {
   /*filho /
 
 /*display:block*/
   width: 112px;
 }
+
 #profile p {
-  font-weight: 500; /*tamanho negrito*/
+  font-weight: 500;
+  /*tamanho negrito*/
   font-size: 16px;
   line-height: 24px;
   margin-top: 8px;
 }
+
 /*Switch*/
-#switch{
-  position: relative; /* relativizar a posição absolute*/
+#switch {
+  position: relative;
+  /* relativizar a posição absolute*/
   width: 64px;
 
   margin: 4px auto;
- 
 }
 
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
-background: white  var(--switch-bg-url) no-repeat center; /*para nao repetir a imagem e centralizar*/
-border: 0;
-border-radius: 50%; /*50% para ficar a borda arredondada*/
+  background: white var(--switch-bg-url) no-repeat center;
+  /*para nao repetir a imagem e centralizar*/
+  border: 0;
+  border-radius: 50%;
+  /*50% para ficar a borda arredondada*/
 
-/*estrategia para posições absolutas*/
-position: absolute; /*quando a posição é absoluta, ele faz uma sobreposição de camadas. Neste caso ele vai ser relativo ao elemento switch */
-left: 0;
-z-index: 1 ; /*qual andar ele está (camada)*/
-transform: translateY(-50%); /*movimentar o elmento pra cima ou pra baixo. -50% o elemento irá passar 50% da caixinha*/
-top: 50%; /*todo elemento vai se posicionar 50% do topo*/
+  /*estrategia para posições absolutas*/
+  position: absolute;
+  /*quando a posição é absoluta, ele faz uma sobreposição de camadas. Neste caso ele vai ser relativo ao elemento switch */
+  left: 0;
+  z-index: 1;
+  /*qual andar ele está (camada)*/
+  transform: translateY(-50%);
+  /*movimentar o elmento pra cima ou pra baixo. -50% o elemento irá passar 50% da caixinha*/
+  top: 50%;
+  /*todo elemento vai se posicionar 50% do topo*/
+
+  /*animation*/
+  animation: slide-back 0.2s;
 }
 
-.light #switch button{
-  right: 0;
-  left: initial; /*volta para sua maneira inicial*/
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+  /*forward mantem as propriedades que defini no slide-in*/
 }
-#switch span{ /*por padrão o display do span é inline (linha)*/
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+#switch span {
+  /*por padrão o display do span é inline (linha)*/
   display: block;
   width: 64px;
   height: 24px;
   background: var(--surface-color);
-  border: var(--stroke-color);
+  border: 1px solid var(--stroke-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
@@ -127,12 +161,15 @@ top: 50%; /*todo elemento vai se posicionar 50% do topo*/
 
 /*links*/
 ul {
-  list-style: none; /*tirar os spontinhos da lista*/
+  list-style: none;
+  /*tirar os spontinhos da lista*/
 
   /*o display tipo flex ajusta os elementos de forma flexivel*/
   display: flex;
-  flex-direction: column; /*o flex direction ordena em colunas*/
-  gap: 16px; /*o gap coloca um espaço entre os elementos em cada linha*/
+  flex-direction: column;
+  /*o flex direction ordena em colunas*/
+  gap: 16px;
+  /*o gap coloca um espaço entre os elementos em cada linha*/
 
   /*24 superior e inferior e 0 laterias*/
   padding: 24px 0;
@@ -140,21 +177,27 @@ ul {
 
 ul li a {
   display: flex;
-  align-items: center; /*alinhar o elemento no meio da caixa*/
-  justify-content: center; /*alinha o texto*/
+  align-items: center;
+  /*alinhar o elemento no meio da caixa*/
+  justify-content: center;
+  /*alinha o texto*/
   padding: 16px 24px;
 
   /*RGBA de 0 até 55 - sendo 0 a cor mais escura, (sendo preto absoluto) e 255 o mais forte daquela cor
   Então red, green e blue e a quarta propriedade é a transparencia
   Quando as 3 estão '255' entao se torna um branco*/
-  background: var(--surface-color); /*cor do background da variavel surface color*/
-  border: var(--stroke-color);/*cor da borda da variavel surface color*/
-  border-radius: 8px; /*arrendondamento de borda*/
+  background: var(--surface-color);
+  /*cor do background da variavel surface color*/
+  border: 1px solid var(--stroke-color);
+  /*cor da borda da variavel surface color*/
+  border-radius: 8px;
+  /*arrendondamento de borda*/
 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 
-  text-decoration: none; /*sem sublinhado*/
+  text-decoration: none;
+  /*sem sublinhado*/
   /*fonte acima de é bold */
   font-weight: 500;
   transition: all 0.2s;
@@ -163,7 +206,8 @@ ul li a {
 /*pseudo-selector; Nele é aplicado as coisas quando passado o mouse em cima*/
 ul li a:hover {
   background: var(--surface-color-hover);
-  border: 1.5px solid var(--text-color); /*variavel que criei para setar branco*/
+  border: 1.5px solid var(--text-color);
+  /*variavel que criei para setar branco*/
 }
 
 /*Social links*/
@@ -184,25 +228,56 @@ ul li a:hover {
   transition: background 0.2s;
   border-radius: 50%;
 }
+
 /*quando colocar o mouse em cima oq vai acontecer com os itens do social*/
 #social-links a:hover {
   background: var(--highlight-color);
 }
+
 footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
 }
+
 /*media queries
 tudo que começa com '@' é uma at room*/
-@media(min-width:700px) {
+@media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
-.light{
-  --bg-url: url(./assets/bg-desktop-light.jpg);
-}
-/*só vai funcionar se tiver essa linha no html
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+
+  /*só vai funcionar se tiver essa linha no html
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  que faz a adaptação do conteúdo pela largura da viewport*/
+}
+
+/*animation
+keyframes define animações*/
+@keyframes slide-in {
+  /*nome slide-in, para deslizar o botão para a direita*/
+  from {
+    /*onde começa*/
+    left: 0;
+  }
+
+  to {
+    left: 50%; /*onde termina*/
+  }
+}
+
+@keyframes slide-back {
+  /*nome slide-back, para deslizar o botão para a esquerda*/
+  from {
+    /*onde começa*/
+    left: 50%;
+  }
+  to {
+    /*onde termina*/
+    left: 0;
+  }
 }
