@@ -47,7 +47,8 @@ body * {
 }
 /*seletor de id*/
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /*cima , automatico nas laterais, em baixo zero*/
   padding: 0 24px;
 
