@@ -39,6 +39,7 @@ body {
   /*abaixo opção de agrupar todas essas informaçoes em uma unica propriedade (atalho ou shorthend)
   background: color image repeat position/size */
   background: var(--bg-url) no-repeat top center/cover; /*chamando a classe da url no root*/
+  height: : 100vh;/*a 'vh' é altura da viewport, ou seja a altura total disponivel*/
 }
 body * {
   /* '*' é o seletor universal, ele vai aplicar para todos os elementos dentro do body*/
@@ -191,4 +192,17 @@ footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+/*media queries
+tudo que começa com '@' é uma at room*/
+@media(min-width:700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+.light{
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+}
+/*só vai funcionar se tiver essa linha no html
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ que faz a adaptação do conteúdo pela largura da viewport*/
 }
